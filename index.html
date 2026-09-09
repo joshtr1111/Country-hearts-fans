@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Country Hearts — Fan Community</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+  <a class="logo" href="#home">COUNTRY <span>HEARTS</span></a>
+  <button class="hamb" onclick="document.querySelector('nav').classList.toggle('show')">☰</button>
+  <nav>
+    <a href="#home">Home</a><a href="#dashboard">Dashboard</a><a href="#meet">Meet & Greet</a>
+    <a href="#gifts">Giveaways</a><a href="#events">Events</a><a href="#gallery">Photos</a>
+    <button class="ghost" onclick="modal('login')">Sign In</button>
+    <button class="btn" onclick="modal('register')">Join</button>
+  </nav>
+</header>
+
+<section id="home" class="hero">
+  <div class="hero-text">
+    <div class="kicker">A FAN COMMUNITY EXPERIENCE</div>
+    <h1>Make memories.<br><i>Share the music.</i></h1>
+    <p>One welcoming place for fans to connect, follow community events, enter eligible drawings and celebrate the moments that make country music special.</p>
+    <div class="buttons"><button class="btn" onclick="modal('register')">Create Fan Account</button><a class="lightbtn" href="#meet">See Meet & Greet</a></div>
+    <small>Community template — not an official artist website unless expressly authorized.</small>
+  </div>
+  <div class="hero-art"><div class="photo">FEATURE<br>PHOTOGRAPH</div><div class="caption"><b>Country Hearts</b><span>Fans • Music • Memories</span></div></div>
+</section>
+
+<section class="numbers"><div><b>2,500+</b><span>Fans</span></div><div><b>12</b><span>Community Events</span></div><div><b>48</b><span>Gift Winners</span></div><div><b>1</b><span>Big Fan Family</span></div></section>
+
+<section id="dashboard" class="section">
+  <div class="heading"><div class="kicker">MEMBER AREA</div><h2>Your fan dashboard</h2><p>Register once, then keep your community activity and eligible entries in one place.</p></div>
+  <div class="dash">
+    <aside><div class="avatar">♥</div><h3 id="dashName">Guest Fan</h3><p id="dashEmail">Sign in to see your profile.</p><button class="btn wide" onclick="modal('register')">Get Registered</button></aside>
+    <div class="cards">
+      <article><span>🎟️</span><h3>Meet & Greet</h3><p id="entryStatus">Registration not started</p><a href="#meet">View opportunity →</a></article>
+      <article><span>🎁</span><h3>Giveaways</h3><p>See current fan gifts and published drawing rules.</p><a href="#gifts">View gifts →</a></article>
+      <article><span>📅</span><h3>Next Event</h3><p>Community event details will appear here.</p><a href="#events">View events →</a></article>
+    </div>
+  </div>
+</section>
+
+<section id="meet" class="section dark">
+  <div class="heading"><div class="kicker">MEET & GREET</div><h2>A chance to make a memory.</h2><p>Enter an eligible drawing after reviewing the official rules for the specific promotion.</p></div>
+  <div class="meet">
+    <div class="event-photo">MEET &<br>GREET<br>PHOTO</div>
+    <div><span class="status">● ENTRY OPEN</span><h3>Fan Meet & Greet Experience</h3>
+    <p>Register your fan account, review eligibility and submit your entry before the published deadline.</p>
+    <div class="checks"><p>✓ One entry per eligible participant where stated</p><p>✓ Winner selected using the published method</p><p>✓ Notification sent using the contact information supplied</p></div>
+    <button class="btn" onclick="modal('entry')">Enter Drawing</button>
+    <a class="rules" href="#rules">Read rules</a></div>
+  </div>
+</section>
+
+<section id="gifts" class="section">
+ <div class="heading"><div class="kicker">FAN GIVEAWAYS</div><h2>Little gifts, big memories.</h2></div>
+ <div class="products">
+  <article><div class="giftpic">GIFT ITEM</div><h3>Signed Memorabilia</h3><p>Sample prize listing. Use only authorized merchandise.</p><button class="outline" onclick="modal('register')">Register to Enter</button></article>
+  <article><div class="giftpic">GIFT BOX</div><h3>Country Fan Gift Box</h3><p>Sample prize listing. Replace with your actual promotion details.</p><button class="outline" onclick="modal('register')">Register to Enter</button></article>
+  <article><div class="giftpic">VIP PASS</div><h3>VIP Experience</h3><p>Sample prize listing. Publish eligibility and rules before launch.</p><button class="outline" onclick="modal('register')">Register to Enter</button></article>
+ </div>
+</section>
+
+<section id="events" class="section paper">
+ <div class="heading"><div class="kicker">COMMUNITY CALENDAR</div><h2>What's happening</h2></div>
+ <div class="events">
+  <article><b>SEP 20</b><div><h3>Fan Story Night</h3><p>Share your favorite country-music memory with the community.</p></div></article>
+  <article><b>OCT 04</b><div><h3>Community Livestream</h3><p>Updates, fan questions and upcoming-event announcements.</p></div></article>
+  <article><b>NOV 15</b><div><h3>Holiday Giveaway</h3><p>Eligibility and official rules will be posted before entry opens.</p></div></article>
+ </div>
+</section>
+
+<section id="gallery" class="section">
+ <div class="heading"><div class="kicker">PHOTO WALL</div><h2>Fan memories</h2></div>
+ <div class="gallery"><div>PHOTO 01</div><div>PHOTO 02</div><div>PHOTO 03</div><div>PHOTO 04</div><div>PHOTO 05</div><div>PHOTO 06</div></div>
+</section>
+
+<section id="rules" class="rulesbox"><h2>Keep every drawing transparent.</h2><p>Before launching a real promotion, publish eligibility, entry period, selection method, prize description, geographic restrictions, odds language where applicable, sponsor information and any legally required disclosures.</p></section>
+
+<footer><div><strong>COUNTRY HEARTS</strong><p>Fan community template.</p></div><div><a href="#rules">Official Rules</a><a href="#">Privacy</a><a href="#">Terms</a></div><small>This template does not imply endorsement, affiliation or authorization. Obtain permission for names, logos, photographs, music and merchandise before public use.</small></footer>
+
+<div id="modal" class="modal"><div class="box"><button class="x" onclick="closeModal()">×</button><div id="modalBody"></div></div></div>
+<script src="script.js"></script>
+</body></html>
