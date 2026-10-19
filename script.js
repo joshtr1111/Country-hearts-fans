@@ -1,3 +1,11 @@
+const SUPABASE_URL = "https://vieaxpjxwnrdgqdorhgm.supabase.co";
+
+const SUPABASE_ANON_KEY = "sb_publishable__tfzBTg1EWagfXLtUGW3JA_geJhv5Fb";
+
+const supabase = window.supabase.createClient(
+    SUPABASE_URL,
+    SUPABASE_ANON_KEY
+); 
 const M=document.getElementById("modal"),B=document.getElementById("modalBody");
 function modal(t){
 M.classList.add("on");
