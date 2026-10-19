@@ -14,7 +14,8 @@ if(t==="register")B.innerHTML=`<h2>Join Country Hearts</h2><p>Create your commun
 if(t==="entry")B.innerHTML=`<h2>Meet & Greet Entry</h2><p>First create a fan account so your entry can be associated with your profile.</p><div class="notice">The real promotion should display its official eligibility, entry period, selection method, prize details and required legal disclosures.</div><button class="btn full" onclick="modal('register')">Create Fan Account</button>`;
 }
 function closeModal(){M.classList.remove("on")}
-async function reg(e) {
+async function reg(e) { 
+    alert("Registration function started!");
     e.preventDefault();
 
     const name = rn.value.trim();
