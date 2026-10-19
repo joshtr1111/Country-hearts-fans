@@ -14,7 +14,66 @@ if(t==="register")B.innerHTML=`<h2>Join Country Hearts</h2><p>Create your commun
 if(t==="entry")B.innerHTML=`<h2>Meet & Greet Entry</h2><p>First create a fan account so your entry can be associated with your profile.</p><div class="notice">The real promotion should display its official eligibility, entry period, selection method, prize details and required legal disclosures.</div><button class="btn full" onclick="modal('register')">Create Fan Account</button>`;
 }
 function closeModal(){M.classList.remove("on")}
-function reg(e){e.preventDefault();let u={name:rn.value,email:re.value};localStorage.setItem("fanDemo",JSON.stringify(u));update(u);B.innerHTML=`<div class="success"><h2>Welcome, ${u.name}!</h2><p>Your demo fan profile has been created. In a production site, secure account creation and the drawing entry would happen on the server.</p><button class="btn full" onclick="closeModal()">Continue</button></div>`}
+async function reg(e) {
+    e.preventDefault();
+
+    const name = rn.value.trim();
+    const email = re.value.trim();
+    const password = document.getElementById("rp").value;
+
+    if (!name || !email || !password) {
+        alert("Please enter your name, email, and password.");
+        return;
+    }
+
+    try {
+        const { data, error } = await supabase.auth.signUp({
+            email: email,
+            password: password,
+            options: {
+                data: {
+                    name: name
+                }
+            }
+        });
+
+        if (error) {
+            alert(error.message);
+            return;
+        }
+
+        if (data.session) {
+            update({
+                name: name,
+                email: email
+            });
+
+            B.innerHTML = `
+                <div class="success">
+                    <h2>Welcome, ${name}!</h2>
+                    <p>Your fan account has been created successfully.</p>
+                    <button class="btn full" onclick="closeModal()">
+                        Continue
+                    </button>
+                </div>
+            `;
+        } else {
+            B.innerHTML = `
+                <div class="success">
+                    <h2>Check Your Email</h2>
+                    <p>We've received your registration. Please check your email to confirm your account before signing in.</p>
+                    <button class="btn full" onclick="closeModal()">
+                        Continue
+                    </button>
+                </div>
+            `;
+        }
+
+    } catch (err) {
+        console.error("Registration error:", err);
+        alert("Registration failed. Please try again.");
+    }
+}
 function login(e){e.preventDefault();let u=JSON.parse(localStorage.getItem("fanDemo")||"null");if(!u||u.email!==le.value){B.innerHTML+=`<p style="color:#9b302d">No matching demo account found on this device.</p>`;return}update(u);B.innerHTML=`<div class="success"><h2>Welcome back, ${u.name}!</h2><p>You are signed in to the demo account.</p><button class="btn full" onclick="closeModal()">Continue</button></div>`}
 function update(u){document.getElementById("dashName").textContent=u.name;document.getElementById("dashEmail").textContent=u.email;document.getElementById("entryStatus").textContent="Account registered — entry available"}
 window.addEventListener("load",()=>{let u=JSON.parse(localStorage.getItem("fanDemo")||"null");if(u)update(u)});
