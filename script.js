@@ -6,6 +6,7 @@ const supabase = window.supabase.createClient(
     SUPABASE_URL,
     SUPABASE_ANON_KEY
 ); 
+alert("JavaScript file is running!");
 const M=document.getElementById("modal"),B=document.getElementById("modalBody");
 function modal(t){
 M.classList.add("on");
